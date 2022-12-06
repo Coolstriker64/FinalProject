@@ -5,3 +5,6 @@ Program a game in which the player places ships of varrying sizes on a coordinat
 This will be done in HTML and JS.
 This was made for my fall semester 2022
 Oklahoma Baptist University.
+
+TO START THE GAME:
+run index.html
