@@ -6,3 +6,4 @@ Battle Ship, but different.
 
 Actual Plans:
 use 2 pages, one to display the player's ships, And one for their guesses.
+3 ships: 1, 2, 3 units long respectively.

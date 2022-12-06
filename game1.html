@@ -26,7 +26,13 @@
     <script src="gameScript.js"></script>
 </head>
 <body>
-    <h2>Fleet Link</h2><input id="startButt" type="button" value="Calibrate Tactical Map" onclick="startGame();"><br><br>
+    <h2>Fleet Link</h2>
+    <input id="startButt" type="button" value="Calibrate Tactical Map" onclick="startGame();">
+    <div id="placeControls">
+        <div id="ship2place"></div><input id="cols" placeholder="X coord" type="text" maxlength="1"><input id="rows" placeholder="Y coord" type="number" maxlength="1">
+        <input id="placeShipButt" type="button" value="Move Ship into position" onclick="placePlayer();">
+    </div>
+    <br><br>
     <div id="player"></div>
     <div id="npc" hidden>YOU SHOULDN'T BE ABLE TO SEE THIS!</div>
 </body>
