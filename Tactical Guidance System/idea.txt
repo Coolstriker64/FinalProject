@@ -1,0 +1,8 @@
+Battle Ship, but different.
+
+1. Instead of set ships, you will have points. You can use them to make as many ships of as many sizes as you want.
+2. Robot voices?
+3. Real Player Mode (and AI mode?, really hope I don't need an ai)
+
+Actual Plans:
+use 2 pages, one to display the player's ships, And one for their guesses.

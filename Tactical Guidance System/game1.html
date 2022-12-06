@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Link</title>
+    <meta name="Author" content="Gabe Donlon">
+    <meta name="Course" content="CIS 3623">
+    <style>
+        body{background-color: black; color: greenyellow; align-content: center;}
+        input{background-color: black; border-color: greenyellow; color: greenyellow;}
+        input:disabled{background-color: black; border-color: green; color: green;}
+        table{border-collapse:collapse; width: 50%;}
+        tr{height: 100px; border-bottom: solid green;}
+        th, td{
+            padding: .5em;
+            text-align: center;
+            vertical-align: center;
+        }
+        td{border: greenyellow; border-style: solid;}
+        .numCord{padding-bottom: 50px; padding-right: 10px;}
+        .letterBorder >* {border-left: solid green; border-right: solid green;}
+        .corner {border-left: solid black; border-top: solid black;}
+    </style>
+    <script src="gameScript.js"></script>
+</head>
+<body>
+    <h2>Fleet Link</h2><input id="startButt" type="button" value="Calibrate Tactical Map" onclick="startGame();"><br><br>
+    <div id="player"></div>
+    <div id="npc" hidden>YOU SHOULDN'T BE ABLE TO SEE THIS!</div>
+</body>
+</html>
