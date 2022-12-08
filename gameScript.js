@@ -32,20 +32,16 @@ function generateBoard(tar){
     document.getElementById(target).innerHTML = board;
 }
 function placePlayer(){
-    console.log("Placing Player Ships...")
-    var guideText = document.getElementById(ship2place).innerText;
-    guideText = "Placing 1x1 Pelican"
-    placePelican();
-}
-function placePelican(){
-    console.log("Placing Pelican...")
-    var xcord = document.getElementById(rows).value;
-    console.log(str(xcord))
-    var ycord = document.getElementById(rows)
-    console.log(str(ycord))
+    console.log("Placing Player Ships...");
+    console.log("Placing Pelican...");
+    var xcord = document.getElementById(cols).text;
+    console.log(str(xcord));
+    var ycord = document.getElementById(rows).number;
+    console.log(str(ycord));
 }
 function setUpEnemy(){
-    console.log("Placing Enemy Ships...")
+    console.log("Placing Enemy Ships...");
+    generateBoard("npc");
 }
 
 function startGame(){
