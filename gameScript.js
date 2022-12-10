@@ -34,9 +34,9 @@ function generateBoard(tar){
 function placePlayer(){
     console.log("Placing Player Ships...");
     console.log("Placing Pelican...");
-    var xcord = document.getElementById(cols).text;
+    var xcord = document.getElementById(cols).value;
     console.log(str(xcord));
-    var ycord = document.getElementById(rows).number;
+    var ycord = document.getElementById(rows).value;
     console.log(str(ycord));
 }
 function setUpEnemy(){
