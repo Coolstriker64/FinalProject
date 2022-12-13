@@ -22,6 +22,7 @@
         .numCord{padding-bottom: 50px; padding-right: 10px;}
         .letterBorder >* {border-left: solid green; border-right: solid green;}
         .corner {border-left: solid black; border-top: solid black;}
+        .ship{background-color: azure;}
     </style>
     <script src="gameScript.js"></script>
 </head>
@@ -29,7 +30,7 @@
     <h2>Fleet Link</h2>
     <input id="startButt" type="button" value="Calibrate Tactical Map" onclick="startGame();">
     <div id="placeControls">
-        <div id="ship2place"></div><input id="cols" placeholder="X coord" type="text" maxlength="1"><input id="rows" placeholder="Y coord" type="text" maxlength="1">
+        <div id="ship2place"></div><input id="colsin" placeholder="X coord" type="text" maxlength="1"><input id="rowsin" placeholder="Y coord" type="text" maxlength="1">
         <input id="placeShipButt" type="button" value="Move Ship into position" onclick="placePlayer();">
     </div>
     <br><br>
