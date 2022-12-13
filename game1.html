@@ -22,7 +22,7 @@
         .numCord{padding-bottom: 50px; padding-right: 10px;}
         .letterBorder >* {border-left: solid green; border-right: solid green;}
         .corner {border-left: solid black; border-top: solid black;}
-        .ship{background-color: azure;}
+        .secret, td{border: black;}
     </style>
     <script src="gameScript.js"></script>
 </head>
@@ -30,11 +30,13 @@
     <h2>Fleet Link</h2>
     <input id="startButt" type="button" value="Calibrate Tactical Map" onclick="startGame();">
     <div id="placeControls">
-        <div id="ship2place"></div><input id="colsin" placeholder="X coord" type="text" maxlength="1"><input id="rowsin" placeholder="Y coord" type="text" maxlength="1">
-        <input id="placeShipButt" type="button" value="Move Ship into position" onclick="placePlayer();">
+        <input id="colsin" placeholder="X coord" type="text" maxlength="1" disabled="true"><input id="rowsin" placeholder="Y coord" type="text" maxlength="1" disabled="true">
+        <input id="placeShipButt" type="button" value="Move Ship into position" onclick="placePlayer();" disabled="true">
     </div>
     <br><br>
-    <div id="player"></div>
+    <table class="secret">
+        <tr><td><div id="player"></div></td><td><div id="attackLog"></div></td></tr>
+    </table>
     <div id="npc" hidden="true">YOU SHOULDN'T BE ABLE TO SEE THIS!</div>
 </body>
 </html>
