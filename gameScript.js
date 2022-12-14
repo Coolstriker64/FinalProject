@@ -1,5 +1,8 @@
 const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 let playerShips = 0;
+let playerShip1 = "";
+let playerShip2 = "";
+let playerShip3 = "";
 function generateBoard(tar){
     console.log("Generating "+tar+" Board...");
     var rows = 5;
@@ -45,7 +48,7 @@ function placePlayer(){
     console.log(ycord);
     var target = xcord.toUpperCase() + "," + ycord;
     console.log(target);
-    document.getElementById(target).innerText = "X";
+    assignShip(target); //Create Ship with coords
     //Reset Input
     document.getElementById("colsin").value = "";
     document.getElementById("rowsin").value = "";
@@ -54,7 +57,27 @@ function placePlayer(){
     console.log(playerShips)
     if(playerShips >= 3){
         console.log("All ships accounted for.");
+        console.log("Ship1 "+ playerShip1);
+        console.log("Ship2 "+ playerShip2);
+        console.log("Ship3 "+ playerShip3);
         beginBattle();
+    }
+}
+function assignShip(coords){
+    shipnum = playerShips + 1;
+    console.log("Creating Ship num " + shipnum + " at position: " + coords);
+    document.getElementById(coords).innerText = "X";
+    if(shipnum == 1){
+        playerShip1 = coords;
+    }
+    else if(shipnum == 2){
+        playerShip2 = coords;
+    }
+    else if(shipnum == 3){
+        playerShip3 = coords;
+    }
+    else{
+        console.log("Player Ship Var Error! Failed at: " + shipnum);
     }
 }
 function setUpEnemy(){
@@ -63,10 +86,11 @@ function setUpEnemy(){
 }
 function beginBattle(){
     console.log("Beginning engagement...")
+    alert("RED ALERT: Slip Space Ruptures Detected! Spooling Weapon Systems...")
+    alert("CRITICAL SCANNER ERROR! Manual Targeting Activated. Blind Fire required...")
     //Disable Placement controls
-    document.getElementById("colsin").disabled = true;
-    document.getElementById("rowsin").disabled = true;
-    document.getElementById("placeShipButt").disabled = true;
+    document.getElementById("placeShipButt").hidden = true;
+    document.getElementById("shootbutt").hidden = false;
 }
 function startGame(){
     generateBoard("player");
