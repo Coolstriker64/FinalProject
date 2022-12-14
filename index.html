@@ -1,66 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" content="Gabe Donlon">
-    <meta name="Course" content="CIS 3623">
-    <title>Init : : T.G.S.</title>
-    <style>
-        body{background-color: black; color: greenyellow;}
-        input{background-color: black; border-color: greenyellow; color: greenyellow;}
-        input:disabled{background-color: black; border-color: green; color: green;}
-        .head{color: greenyellow; font-size: xx-large; font-weight: bold; text-align: center;}
-        .small{color: greenyellow; font-size: large;}
-        a.button {-webkit-appearance: button; -moz-appearance: button; appearance: button; text-decoration: none; color: initial;}
-    </style>
-    <script>
-        function startSinglePlayer(){
-            var newWindow = window.open();
-            newWindow.document.location.href = "game1.html";
-            //var newWindow2 = window.open();
-            //newWindow2.document.location.href = "game2.html";
-        }
-        function doFx(){
-            var FXbox = document.getElementById("fxDiv");
-            FXbox.innerHTML = "Network Status :: [_____]";
-            setTimeout(() => { FXbox.innerHTML = "Network Status :: [.____]"; }, 3000);
-            setTimeout(() => { FXbox.innerHTML = "Network Status :: [..___]"; }, 5000);
-            setTimeout(() => { FXbox.innerHTML = "Network Status :: [...__]"; }, 6000);
-            setTimeout(() => { FXbox.innerHTML = "Network Status :: [...._]"; }, 9000);
-            setTimeout(() => { FXbox.innerHTML = "Network Status :: [.....]"; }, 11000);
-            setTimeout(() => { FXbox.innerHTML = "Network Status :: Active!"; }, 11500);
-            setTimeout(() => { document.getElementById("singleButt").disabled = false; }, 11500);
-            setTimeout(() => { document.getElementById("DummyButton1").disabled = false; }, 11500);
-            setTimeout(() => { document.getElementById("DummyButton2").disabled = false; }, 11500);
-        }
-        function ssDrive(){
-            alert("ERROR! SS Drive access UNAUTHORIZED!")
-        }
-        function aiPop(){
-            
-            alert("AI responce: Data Unavailable. Analyzing Database, please hold...")
-        }
-    </script>
-    <!--newWindow2.document.location.href = "game2.html"; startSinglePlayer() stuff-->
-</head>
-<body>
-    <p class="head">UNSC Tactical Guidance System</p>
-    <div>
-        <div id="fxDiv">Network Status :: ???</div>
-        <input id="FX" type="button" value="Activate Network Connection" onclick="doFx();">
-        <br><br>
-        <input id="singleButt" type="button" value="Initiate Fleet Link" onclick="startSinglePlayer();">
-        <br><br>
-        <input id="DummyButton1" type="button" value="Calibrate S.S. Drives" onclick="ssDrive();" disabled>
-        <br><br>
-        <input id="DummyButton2" type="button" value="Request A.I. Tactical Assistance" onclick="aiPop();" disabled>
-    </div>
-    <p class="small">
-        V 0.1, created by Gabe Donlon for training purposes.<br>
-        Disconnect terminal from network access before use or live rounds will be fired.<br><br><br>
-        <span style="font-weight: bold;">Initiate Fleet Link to start.</span>
-    </p>
-</body>
+    <head>
+        <meta name="Author" content="Gabe Donlon">
+        <meta name="Course" content="CIS 3623">
+        <title>Gabe Donlon Resume</title>
+        <style>
+            body{background-color: lightgrey;}
+            h3{color: rgb(95, 192, 253);}
+            .ToDaRight{position: absolute; right: 75px;}
+            .ToDaLeft{ position: absolute; left: 75px;}
+            .bigger{font-size: large;}
+            .biggerer{font-size: larger;}
+            .miniText{font-size: small;}
+        </style>
+        <script>
+            function goToGame(){
+                var newWindow = window.open();
+                newWindow.document.location.href = "StartScreen.html";
+            }
+        </script>
+    </head>
+
+    <body>
+        <!--Links-->
+        <div><a href="#jobs">Prior Experience</a> | <a href="contactInfo">Contact Info</a> | <a href="#education">Education</a> | <a href="#image">Image</a> | <input type="button" value="My Game" onclick="goToGame();"> |</div>
+
+
+        <h1 class="ToDaLeft" style="top: 25px; font-family: 'Times New Roman', Times, serif;">
+            Gabriel R. Donlon
+        </h1>
+        <h3 class="ToDaLeft" style="position: absolute; top:65px;">"I just wanna live a good life."</h3>
+        <h2 class="ToDaRight" id="contactInfo">
+            Phone: 817-586-9795<br>Email: gabedonlon11@gmail.com<br>Address: 904 Venice AVE.
+        </h2>
+        <br><br><br><br><br><br><hr>
+        <article class="ToDaLeft" style="width: 853px;">
+            <section id="jobs">
+                <section><h3>Experience</h3></section>
+                <section class="bigger">
+                    <br>
+                    <b>Edikt Studios,</b> Keller TX - <i>Various Roles</i><br>
+                    <span class="miniText">August 2018 - 2020</span><br>
+                        Acted in many roles, such as programming, troubleshooting errors, designing visual and auditory assets, and writing dialogue for a video game design team at Kcal Studios.
+                </section>
+                <section class="bigger">
+                <br>
+                <b>Staples,</b> Southlake TX - <i>Tech Sales Associate</i><br>
+                <span class="miniText">July 2021 - Present</span><br>
+                    Operated Register and patrolled the sales floor, conversing with customers to sell technology and furniture items, as well as protection plans and other product protection solutions
+            </section>
+            <section class="bigger">
+                <br>
+                <b>Tom Thumb,</b> Southlake TX - <i>Cashier/Courtesy Clerk</i><br>
+                <span class="miniText">July 2021 - Present</span><br>
+                    Trained in customer service, operated the register, bagged groceries for customers, and stocked and straightened products on shelves, as well as filled in for various roles as needed, mainly revolving around solving customer facing issues.
+            </section>
+            <section class="bigger">
+                <br>
+                <b>Kroger,</b>Keller TX - <i>Cashier</i><br>
+                <span class="miniText">July 2021 - Present</span><br>
+                    Trained in customer service, operated the register, bagged groceries for customers, and stocked and straightened products on shelves, as well as filled in for various roles as needed, mainly revolving around solving customer facing issues.
+            </section>
+            <section class="bigger">
+                <br>
+                <b>Sonic,</b>Keller TX - <i>Carhop</i><br>
+                <span class="miniText">July 2021 - Present</span><br>
+                    Trained in Food Service, Register Running, and making drinks.
+            </section>
+        </section>
+        <section id="education">
+            <h3>Education</h3>
+            <section>
+                <b>Oklahoma Baptist University,</b> Shawnee, OK - Attending
+            </section>
+            <section>
+                <b>Tarrant County College,</b> Hurst, TX - Freshmen
+            </section>
+        </section>
+        <section id="education">
+            <h3>Extracurricular activities</h3>
+            <section>4-time Varsity letterman on the KHS Clay Target Team, 2018 State Champions.</section>
+        </section>
+        <section id="image">
+            <img src="https://pbs.twimg.com/media/FjpgAPUWIAAk7I_?format=jpg&name=900x900" alt="This one broke.">
+        </section> 
+        </article>
+        <!-- <div>
+            <audio controls>
+                <source src="fakeAudio.mp3" type="audio/mpeg">
+            </audio>
+            <video controls>
+                <source src="https://www.youtube.com/watch?v=yBt32alkswI" type="video/webm">
+                <a href="https://www.youtube.com/watch?v=yBt32alkswI"></a>
+            </video>
+        </div> -->
+    </body>
 </html>
