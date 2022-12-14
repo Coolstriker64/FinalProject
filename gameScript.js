@@ -1,12 +1,18 @@
 const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+const rows = 5;
+const cols = 5;
 let playerShips = 0;
-let playerShip1 = "";
-let playerShip2 = "";
-let playerShip3 = "";
+let pShip1 = "";
+let pShip2 = "";
+let pShip3 = "";
+let eShip1 = "";
+let eShip2 = "";
+let eShip3 = "";
+let playerPoints = 0;
+let enemyPoints = 0;
+let ePoints = 0;
 function generateBoard(tar){
     console.log("Generating "+tar+" Board...");
-    var rows = 5;
-    var cols = 5;
     var difficulty = "";
     var target = tar;
     //difficulty = form.elements["difficulty"].value;
@@ -54,12 +60,10 @@ function placePlayer(){
     document.getElementById("rowsin").value = "";
     //Make sure correct ships have been placed.
     playerShips = playerShips + 1;
-    console.log(playerShips)
+    console.log("PShips :" + playerShips)
     if(playerShips >= 3){
         console.log("All ships accounted for.");
-        console.log("Ship1 "+ playerShip1);
-        console.log("Ship2 "+ playerShip2);
-        console.log("Ship3 "+ playerShip3);
+        getPlayer();
         beginBattle();
     }
 }
@@ -68,21 +72,60 @@ function assignShip(coords){
     console.log("Creating Ship num " + shipnum + " at position: " + coords);
     document.getElementById(coords).innerText = "X";
     if(shipnum == 1){
-        playerShip1 = coords;
+        pShip1 = coords;
     }
     else if(shipnum == 2){
-        playerShip2 = coords;
+        pShip2 = coords;
     }
     else if(shipnum == 3){
-        playerShip3 = coords;
+        pShip3 = coords;
     }
     else{
         console.log("Player Ship Var Error! Failed at: " + shipnum);
     }
 }
+function getPlayer(){
+    console.log("Player Ship1 "+ pShip1);
+    console.log("Player Ship2 "+ pShip2);
+    console.log("Player Ship3 "+ pShip3);
+}
+function makeRandCoords(){
+    const min = 1;
+    const max = 5;
+    xcord = Math.floor(Math.random() * (max - min + 1)) + min;
+    b = Math.floor(Math.random() * (max - min + 1)) + min;
+    a = alphabet[xcord - 1];
+//    console.log(a);
+//    console.log(b);
+    var coords = "" + a + "," + b;
+    console.log(coords);
+    return coords;
+}
 function setUpEnemy(){
     console.log("Placing Enemy Ships...");
-    generateBoard("npc");
+    //generateBoard("npc");
+    for(let i = 0; i < 3; i++){
+        target = makeRandCoords();
+        createEShip(i,target);
+    }
+    getEnemy();
+}
+function createEShip(shipnum, target){
+    coords = target;
+    if(shipnum == 0){
+        eShip1 = coords;
+    }
+    else if(shipnum == 1){
+        eShip2 = coords;
+    }
+    else if(shipnum == 2){
+        eShip3 = coords;
+    }
+}
+function getEnemy(){
+    console.log("Enemy Ship 1 " + eShip1);
+    console.log("Enemy Ship 2 " + eShip2);
+    console.log("Enemy Ship 3 " + eShip3);
 }
 function beginBattle(){
     console.log("Beginning engagement...")
@@ -98,4 +141,72 @@ function startGame(){
     document.getElementById("rowsin").disabled = false;
     document.getElementById("placeShipButt").disabled = false;
     setUpEnemy();
+}
+function playerHit(target){
+    alert("Direct Hit! Enemy Ship Destroyed!");
+    var CL = document.getElementById("combatLog").innerText;
+    playerPoints++;
+    CL += "\n" + target + "Ship Destroyed";
+    winCheck();
+}
+function fire(){
+    alert("Fireing round...");
+    var xcord = document.getElementById("colsin").value;
+    var ycord = document.getElementById("rowsin").value;
+    var target = xcord.toUpperCase() + "," + ycord;
+    console.log("fireing on: " + target);
+    var CL = document.getElementById("combatLog").value;
+    CL += target + " :: ";
+    if(target == eShip1){
+        eShip1 = "Dead";
+        playerHit(target);
+    }
+    else if(target == eShip2){
+        eShip2 = "Dead";
+        playerHit(target);
+    }
+    else if(target == eShip3){
+        eShip3 = "Dead";
+        playerHit(target);
+    }
+    else{
+        alert("No impact detected")
+        CL += "\n" + target + "miss"
+    }
+    retaliate();
+}
+function EnemyHit(coords){
+    alert("ALERT: Direct Hit!");
+    alert("Ship Destroyed!");
+    document.getElementById(coords).innerText = "O";
+    enemyPoints++;
+    winCheck();
+}
+function retaliate(){
+    target = makeRandCoords();
+    if(target == pShip1){
+        pShip1 = "Dead";
+        EnemyHit(target);
+    }
+    else if(target == pShip2){
+        pShip2 = "Dead";
+        EnemyHit(target);
+    }
+    else if(target == pShip3){
+        pShip3 = "Dead";
+        EnemyHit(target);
+    }
+    else{
+        alert("All ships accounted for")
+    }
+}
+function winCheck(){
+    if(playerPoints == 3){
+        alert("ENEMY DEFEATED! WE ARE VICTORIOUS!");
+        alert("Please Recalibrate map");
+    }
+    else if (enemyPoints == 3){
+        enemyWins();
+        alert("Please Recalibrate map");
+    }
 }
