@@ -11,6 +11,8 @@ let eShip3 = "";
 let playerPoints = 0;
 let enemyPoints = 0;
 let ePoints = 0;
+
+
 function generateBoard(tar){
     console.log("Generating "+tar+" Board...");
     var difficulty = "";
@@ -42,8 +44,7 @@ function generateBoard(tar){
     board += "</tbody>" + "\n" + "</table>";
     console.log(board);
     document.getElementById(target).innerHTML = board;
-    document.getElementById("startButt").value = "REcalibrate Tactical Map";
-    document.getElementById("startButt").disable = true;
+    document.getElementById("startButt").disabled = true;
 }
 function placePlayer(){
     console.log("Placing Player Ships...");
@@ -144,9 +145,8 @@ function startGame(){
 }
 function playerHit(target){
     alert("Direct Hit! Enemy Ship Destroyed!");
-    var CL = document.getElementById("combatLog").innerText;
     playerPoints++;
-    CL += "\n" + target + "Ship Destroyed";
+    document.getElementById("combatLog").innerText += "\n" + target + ": Ship Destroyed";
     winCheck();
 }
 function fire(){
@@ -155,8 +155,7 @@ function fire(){
     var ycord = document.getElementById("rowsin").value;
     var target = xcord.toUpperCase() + "," + ycord;
     console.log("fireing on: " + target);
-    var CL = document.getElementById("combatLog").value;
-    CL += target + " :: ";
+    //document.getElementById("combatLog").innerText += target + " :: ";
     if(target == eShip1){
         eShip1 = "Dead";
         playerHit(target);
@@ -171,7 +170,7 @@ function fire(){
     }
     else{
         alert("No impact detected")
-        CL += "\n" + target + "miss"
+        document.getElementById("combatLog").innerText += "\n" + target + ": miss"
     }
     retaliate();
 }
@@ -200,13 +199,33 @@ function retaliate(){
         alert("All ships accounted for")
     }
 }
+function ADretaliate(target){
+    if(target == pShip1){
+        pShip1 = "Dead";
+        EnemyHit(target);
+    }
+    else if(target == pShip2){
+        pShip2 = "Dead";
+        EnemyHit(target);
+    }
+    else if(target == pShip3){
+        pShip3 = "Dead";
+        EnemyHit(target);
+    }
+    else{
+        alert("All ships accounted for")
+    }
+}
 function winCheck(){
     if(playerPoints == 3){
         alert("ENEMY DEFEATED! WE ARE VICTORIOUS!");
         alert("Please Recalibrate map");
+        document.getElementById("combatLog").innerText += "\n" + "RELOAD PAGE TO CONTINUE!";
     }
     else if (enemyPoints == 3){
-        enemyWins();
-        alert("Please Recalibrate map");
+        alert("ALL SHIPS DESTROYED!")
+        alert("AI Recommendation: Retreat if possible");
+        alert("YOU LOSE." + "\n" + "Please Recalibrate map");
+        document.getElementById("combatLog").innerText += "\n" + "RELOAD PAGE TO CONTINUE!";
     }
 }
