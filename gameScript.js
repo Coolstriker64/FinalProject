@@ -11,6 +11,7 @@ let eShip3 = "";
 let playerPoints = 0;
 let enemyPoints = 0;
 let ePoints = 0;
+let AIstage = 1;
 
 
 function generateBoard(tar){
@@ -45,6 +46,23 @@ function generateBoard(tar){
     console.log(board);
     document.getElementById(target).innerHTML = board;
     document.getElementById("startButt").disabled = true;
+    AIstage ++;
+}
+function getAI(){
+    if(AIstage == 1){
+        alert("Click \"Calibrate Tactical Map\" to map the battle field and scan for enemies.")
+    }
+    else if (AIstage == 2){
+        alert("Input destination coordinates into the boxes. The X coordinate will be a letter, and the Y coordinate will be a number."
+            + "\n" + "Press the button to send a ship to that position. You have [3] ships to assign.")
+    }
+    else if(AIstage == 3){
+        alert("Use the coordinate boxes from before to aim weapons. Press the button to fire." + "\n" + 
+        "A log of all shots and their results is in the bottom right if the screen.")
+    }
+    else if(AIstage == 4){
+        alert("Combat over!" + "\n" + "Please close, or refresh the webpage.")
+    }
 }
 function placePlayer(){
     console.log("Placing Player Ships...");
@@ -130,7 +148,7 @@ function getEnemy(){
 }
 function beginBattle(){
     console.log("Beginning engagement...")
-    alert("RED ALERT: Slip Space Ruptures Detected! Spooling Weapon Systems...")
+    alert("RED ALERT: [3] Slip Space Ruptures Detected! Spooling Weapon Systems...")
     alert("CRITICAL SCANNER ERROR! Manual Targeting Activated. Blind Fire required...")
     //Disable Placement controls
     document.getElementById("placeShipButt").hidden = true;
@@ -221,11 +239,13 @@ function winCheck(){
         alert("ENEMY DEFEATED! WE ARE VICTORIOUS!");
         alert("Please Recalibrate map");
         document.getElementById("combatLog").innerText += "\n" + "RELOAD PAGE TO CONTINUE!";
+        AIstage ++;
     }
     else if (enemyPoints == 3){
         alert("ALL SHIPS DESTROYED!")
         alert("AI Recommendation: Retreat if possible");
         alert("YOU LOSE." + "\n" + "Please Recalibrate map");
         document.getElementById("combatLog").innerText += "\n" + "RELOAD PAGE TO CONTINUE!";
+        AIstage ++;
     }
 }
