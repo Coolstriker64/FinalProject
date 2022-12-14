@@ -168,11 +168,11 @@ function playerHit(target){
     winCheck();
 }
 function fire(){
-    alert("Fireing round...");
+    alert("firing round...");
     var xcord = document.getElementById("colsin").value;
     var ycord = document.getElementById("rowsin").value;
     var target = xcord.toUpperCase() + "," + ycord;
-    console.log("fireing on: " + target);
+    console.log("firing on: " + target);
     //document.getElementById("combatLog").innerText += target + " :: ";
     if(target == eShip1){
         eShip1 = "Dead";
